@@ -1,6 +1,6 @@
 INSERT INTO roles (id, name) VALUES ('1', 'ADMINISTRATOR'),('2', 'SALE_USER'),('3', 'CUSTOMER_USER'),('4', 'SECURE_API_USER');
 
-INSERT INTO users (id, username, lastname, firstname, patronymic, password, email)
+INSERT INTO users (id, username, last_name, first_name, patronymic, password, email)
 VALUES (1,'admin','Ivanov','Ivan', 'Ivanovich', 'adminadmin','admin@gmail.com'),
 (2,'qwerty','Bobov','Bob', 'Bobovich','bobbobbob','bob@gmail.com'),
 (3,'yuio','Tompson','Tom', 'Tomovich','bobbobbob','tom@gmail.com'),

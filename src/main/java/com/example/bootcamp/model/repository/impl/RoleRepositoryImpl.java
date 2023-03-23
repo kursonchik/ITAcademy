@@ -12,6 +12,7 @@ import javax.persistence.PersistenceContext;
 /**
  * @author : Volha Salash
  */
+
 @Repository
 public class RoleRepositoryImpl implements RoleRepository {
 
@@ -24,7 +25,7 @@ public class RoleRepositoryImpl implements RoleRepository {
         Roles role;
         try {
             role = (Roles) entityManager.createQuery("SELECT t FROM Roles t where t.name = :name")
-                    .setParameter("name", name).getSingleResult();
+                    .setParameter("Role name", name).getSingleResult();
         } catch (NoResultException e) {
             role = null;
         }

@@ -3,7 +3,6 @@ package com.example.bootcamp.model.entity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -11,12 +10,13 @@ import java.util.Set;
 /**
  * @author : Volha Salash
  */
+
 @Entity
 @Getter
 @Setter
 @RequiredArgsConstructor
 @Table(name = "roles")
-public class Roles  implements GrantedAuthority {
+public class Roles {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,16 +30,5 @@ public class Roles  implements GrantedAuthority {
     @ManyToMany(mappedBy = "roles")
     private Set<Users> users;
 
-    @Override
-    public String getAuthority() {
-        return getName();
-    }
-    public Set<Users> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<Users> users) {
-        this.users = users;
-    }
-
 }
+

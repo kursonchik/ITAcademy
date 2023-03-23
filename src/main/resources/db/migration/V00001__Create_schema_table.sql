@@ -9,8 +9,8 @@ create TABLE IF NOT EXISTS roles (
 create TABLE IF NOT EXISTS users (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR(20) UNIQUE NOT NULL,
-  lastname VARCHAR(40) NOT NULL,
-  firstname VARCHAR(20) NOT NULL,
+  last_name VARCHAR(40) NOT NULL,
+  first_name VARCHAR(20) NOT NULL,
   patronymic VARCHAR(40) NOT NULL,
   password VARCHAR(40) NOT NULL,
   email VARCHAR(50) UNIQUE NOT NULL);

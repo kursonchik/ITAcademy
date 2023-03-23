@@ -1,14 +1,16 @@
 package com.example.bootcamp.converterMapper.impl;
 
+
 import com.example.bootcamp.converterMapper.interfaces.RoleMapper;
 import com.example.bootcamp.converterMapper.interfaces.UserMapper;
 import com.example.bootcamp.dto.RoleDto;
-import com.example.bootcamp.dto.UserDto;
+import com.example.bootcamp.dto.UserDtoWithFullName;
 import com.example.bootcamp.model.entity.Roles;
 import com.example.bootcamp.model.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,7 +28,6 @@ public class RoleMapperImpl implements RoleMapper {
 
         RoleDto roleDto = new RoleDto();
 
-        roleDto.setId(role.getId());
         roleDto.setName(role.getName());
         roleDto.setUsers(userEntitySetToUserDtoSet(role.getUsers()));
 
@@ -41,19 +42,18 @@ public class RoleMapperImpl implements RoleMapper {
 
         Roles roleEntity = new Roles();
 
-        roleEntity.setId(roleDto.getId());
         roleEntity.setName(roleDto.getName());
         roleEntity.setUsers(userDtoSetToUserEntitySet(roleDto.getUsers()));
 
         return roleEntity;
     }
 
-    protected Set<UserDto> userEntitySetToUserDtoSet(Set<Users> set) {
+    public Set<UserDtoWithFullName> userEntitySetToUserDtoSet(Set<Users> set) {
         if (set == null) {
-            return null;
+            return Collections.emptySet();
         }
 
-        Set<UserDto> set1 = new HashSet<UserDto>(Math.max((int) (set.size() / .75f) + 1, 16));
+        Set<UserDtoWithFullName> set1 = new HashSet<>(Math.max((int) (set.size() / .75f) + 1, 16));
         for (Users userEntity : set) {
             set1.add(userMapper.toDto(userEntity));
         }
@@ -61,14 +61,14 @@ public class RoleMapperImpl implements RoleMapper {
         return set1;
     }
 
-    protected Set<Users> userDtoSetToUserEntitySet(Set<UserDto> set) {
+    protected Set<Users> userDtoSetToUserEntitySet(Set<UserDtoWithFullName> set) {
         if (set == null) {
-            return null;
+            return Collections.emptySet();
         }
 
         Set<Users> set1 = new HashSet<Users>(Math.max((int) (set.size() / .75f) + 1, 16));
-        for (UserDto userDto : set) {
-            set1.add(userMapper.toEntity(userDto));
+        for (UserDtoWithFullName userDtoList : set) {
+            set1.add(userMapper.toEntity(userDtoList));
         }
 
         return set1;

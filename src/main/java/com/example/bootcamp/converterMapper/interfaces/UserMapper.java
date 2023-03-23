@@ -1,6 +1,6 @@
 package com.example.bootcamp.converterMapper.interfaces;
 
-import com.example.bootcamp.dto.UserDto;
+import com.example.bootcamp.dto.UserDtoWithFullName;
 import com.example.bootcamp.model.entity.Users;
 
 /**
@@ -9,7 +9,8 @@ import com.example.bootcamp.model.entity.Users;
 
 public interface UserMapper {
 
-    UserDto toDto(Users user);
+    UserDtoWithFullName toDto(Users user);
 
-    Users toEntity(UserDto userDto);
+    Users toEntity(UserDtoWithFullName userDtoWithFullName);
+
 }
