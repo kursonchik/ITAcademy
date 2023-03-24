@@ -2,6 +2,7 @@ package com.example.bootcamp.dto;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
@@ -19,6 +20,7 @@ import java.util.Set;
 
 
 @AllArgsConstructor
+@Builder
 @Getter
 @Setter
 public class UserDtoWithFullName implements Serializable {
