@@ -1,8 +1,7 @@
-<h1>Backend Test task</h1>
-<h2>Test task - IT</h2>
+<h1>Test task - IT Практикум "Java developer"</h1>
 
 ## List of used technologies
-● Java 11 ● Spring Boot 2 ● Maven  ● MySQL 8 ● FlyWay
+● Spring Boot 2 ● Maven  ● MySQL 8 ● FlyWay
 ● Hibernate 5 ● Lombok ● Log4J ● jUnit 
 
 ## Getting Started
@@ -21,13 +20,7 @@ git clone https://github.com/kursonchik/ITAcademy.git
 
 ### Create MySQL Database
 ![db](./DirectoryREADME/EER.png "db")
-Example:
 
-```
-create SCHEMA IF NOT EXISTS db_bootcamp;
-use db_bootcamp;
-    
-```
 DDL operations are stored in src/main/resources/db/migration;
 
 database connection settings in application.properties
