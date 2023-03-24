@@ -1,6 +1,7 @@
 package com.example.bootcamp.service.interfaces;
 
 import com.example.bootcamp.dto.UserDtoWithFullName;
+import com.example.bootcamp.dto.UserResponseDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -9,7 +10,8 @@ import org.springframework.data.domain.Pageable;
  */
 public interface UserService {
 
-    void save(UserDtoWithFullName userDto);
-    Page<UserDtoWithFullName> findAll(Pageable pageable);
+    String save(UserDtoWithFullName userDto);
+
+    Page<UserResponseDto> findAll(Pageable pageable);
 
 }

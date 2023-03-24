@@ -5,6 +5,7 @@ import com.example.bootcamp.converterMapper.interfaces.RoleMapper;
 import com.example.bootcamp.converterMapper.interfaces.UserMapper;
 import com.example.bootcamp.dto.RoleDto;
 import com.example.bootcamp.dto.UserDtoWithFullName;
+import com.example.bootcamp.dto.UserResponseDto;
 import com.example.bootcamp.model.entity.Roles;
 import com.example.bootcamp.model.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,22 +32,20 @@ public class UserMapperImpl implements UserMapper {
         userEntity.setFirstName(userDto.getFirstName());
         userEntity.setPatronymic(userDto.getPatronymic());
         userEntity.setEmail(userDto.getEmail());
-        userEntity.setRoles(userDto.getRoles());
+        userEntity.setRoles(roleDtoSetToRoleEntitySet(userDto.getRoles()));
 
         return userEntity;
     }
 
     @Override
-    public UserDtoWithFullName toDto(Users user) {
+    public UserResponseDto toDto(Users user) {
         if (user == null) {
             return null;
         }
 
-        UserDtoWithFullName userDto = new UserDtoWithFullName();
+        UserResponseDto userDto = new UserResponseDto();
 
-        userDto.setLastName(user.getLastName());
-        userDto.setFirstName(user.getFirstName());
-        userDto.setPatronymic(user.getPatronymic());
+        userDto.setFullName(user.getLastName() + " " + user.getFirstName() + " " + user.getPatronymic());
         userDto.setEmail(user.getEmail());
         userDto.setRoles(user.getRoles());
 

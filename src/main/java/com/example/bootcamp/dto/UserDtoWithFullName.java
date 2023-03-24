@@ -1,9 +1,9 @@
 package com.example.bootcamp.dto;
 
-import com.example.bootcamp.model.entity.Roles;
 import com.google.gson.annotations.SerializedName;
-import com.sun.istack.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
@@ -16,13 +16,18 @@ import java.util.Set;
 /**
  * @author : Volha Salash
  */
-@Data
-@Builder
-@NoArgsConstructor
+
+
 @AllArgsConstructor
 @Getter
 @Setter
 public class UserDtoWithFullName implements Serializable {
+
+    @NotBlank
+    @Pattern(regexp = "^[a-zA-Z]")
+    @Length(max = 100)
+    @SerializedName("Full name")
+    private String fullName;
 
     @NotBlank
     @Pattern(regexp = "^[a-zA-Z]")
@@ -51,7 +56,6 @@ public class UserDtoWithFullName implements Serializable {
     @Email
     private String email;
 
-    @NotNull
     @Size(min = 1)
-    private Set<Roles> roles;
+    private Set<RoleDto> roles;
 }

@@ -24,9 +24,6 @@ public class Users {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "username", unique = true, nullable = false)
-    private String username;
-
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
@@ -36,11 +33,7 @@ public class Users {
     @Column(name = "patronymic", nullable = false)
     private String patronymic;
 
-    @Column(name = "password", nullable = false)
-    private String password;
-
-
-    @Column(name = "email", unique = true, nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
 
 

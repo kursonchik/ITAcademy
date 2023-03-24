@@ -1,39 +1,27 @@
 package com.example.bootcamp.controller.interfaces;
 
+import com.example.bootcamp.dto.UserDtoWithFullName;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 /**
  * @author : Volha Salash
  */
-/*
-@RequestMapping("/api")
+
+@RequestMapping("/api/users")
 public interface UserAPIInterface {
-    @GetMapping()
-    List<UserDto> getUsers(@PageableDefault(sort = "email", direction = Sort.Direction.ASC) Pageable pageable);
 
-    ;
+    // create user
+    @PostMapping
+    ResponseEntity<String> createUser(@RequestBody UserDtoWithFullName createUserDto);
 
-    @PostMapping()
-    ResponseEntity createUser(@RequestBody UserDto createUserDto);
+    // get all users
+    @GetMapping
+    String findAll(@PageableDefault(sort = "email", direction = Sort.Direction.ASC, size = 10) Pageable pageable);
 }
-    /*  @PostMapping
-      ResponseEntity<Long> createUser(@RequestBody UserDto userRequestDto);
-
-      @GetMapping
-      ResponseEntity<Page<UserDto>> getAllUsers(@PageableDefault(sort = "email", direction = Sort.Direction.ASC) Pageable pageable);
-
-
-
-    @GetMapping(value = "/users")
-    ModelAndView allUsers(@PageableDefault(sort = "email", direction = Sort.Direction.ASC) Pageable pageable);
-
-    @GetMapping("/registration")
-    String registration(Model model);
-
-    @PostMapping("/registration")
-    String registration(@ModelAttribute("userForm") UserDto userForm, BindingResult bindingResult);
-
-    @GetMapping("/login")
-    String login(Model model, String error, String logout);
-
-}
-
-     */
