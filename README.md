@@ -53,11 +53,12 @@ Example POST:
 ![run](./DirectoryREADME/Untitled1.png "RUN")
 ---
 
-## Demo
-Request/Response example
+## Demo POST
 
 
 ![addUser](./DirectoryREADME/postmanAdd.png "addUser")
+
+## Demo GET
 
 ![ListOfUsers1](./DirectoryREADME/1.png "ListOfUsers1")
 
