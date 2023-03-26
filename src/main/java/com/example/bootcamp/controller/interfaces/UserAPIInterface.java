@@ -17,11 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/api/users")
 public interface UserAPIInterface {
 
+    // get all users
+    @GetMapping
+    ResponseEntity<String> findAllUsers(@PageableDefault(sort = "email", direction = Sort.Direction.ASC, size = 10) Pageable pageable);
+
     // create user
     @PostMapping
     ResponseEntity<String> createUser(@RequestBody UserDtoWithFullName createUserDto);
 
-    // get all users
-    @GetMapping
-    String findAll(@PageableDefault(sort = "email", direction = Sort.Direction.ASC, size = 10) Pageable pageable);
 }

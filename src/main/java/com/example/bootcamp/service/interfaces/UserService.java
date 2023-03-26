@@ -10,8 +10,8 @@ import org.springframework.data.domain.Pageable;
  */
 public interface UserService {
 
-    String save(UserDtoWithFullName userDto);
+    String saveUser(UserDtoWithFullName userDto);
 
-    Page<UserResponseDto> findAll(Pageable pageable);
+    Page<UserResponseDto> findAllUsers(Pageable pageable);
 
 }

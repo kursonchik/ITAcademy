@@ -24,14 +24,14 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
 
     @Override
-    public String save(UserDtoWithFullName userDto) {
+    public String saveUser(UserDtoWithFullName userDto) {
         Users user = userRepository.save(userMapper.toEntity(userDto));
         log.info("Created new user " + " " + user.getLastName() + " " + user.getFirstName() + " " + user.getPatronymic());
         return user.getLastName();
     }
 
     @Override
-    public Page<UserResponseDto> findAll(Pageable pageable) {
+    public Page<UserResponseDto> findAllUsers(Pageable pageable) {
         log.info("Created list of users with page size" + " " + pageable.getPageSize());
         return this.userRepository.findAll(pageable).map(userMapper::toDto);
     }

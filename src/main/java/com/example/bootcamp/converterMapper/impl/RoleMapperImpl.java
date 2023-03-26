@@ -53,12 +53,7 @@ public class RoleMapperImpl implements RoleMapper {
             return Collections.emptySet();
         }
 
-        Set<UserDtoWithFullName> set1 = new HashSet<>(Math.max((int) (set.size() / .75f) + 1, 16));
-        for (Users userEntity : set) {
-    //        set1.add(userMapper.toDto(userEntity));
-        }
-
-       return set1;
+        return new HashSet<>(Math.max((int) (set.size() / .75f) + 1, 16));
     }
 
     protected Set<Users> userDtoSetToUserEntitySet(Set<UserDtoWithFullName> set) {

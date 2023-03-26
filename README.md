@@ -6,8 +6,6 @@
 
 ## Getting Started
 
- Java version 11+ is required.
-
 #### Clone the repository
   
 >Intellij IDEA -> Git -> Clone -> Url -> https://github.com/kursonchik/ITAcademy
@@ -25,33 +23,28 @@ DDL operations are stored in src/main/resources/db/migration;
 
 database connection settings in application.properties
 
-### Run BootcampApplication
+### 1) Run BootcampApplication
+Run Spring Boot application with command: mvn spring-boot:run.
+users table will be automatically generated in Database.
+![run](./DirectoryREADME/tests.png "test")
+### 2) Run Postman
+Now we can check operations with Postman.
 
-### Run Postman
 
-Example POST:
-```
-{ 
-"lastName": "Fvanovakova", 
-"firstName": "Fvana", 
-"patronymic": "Ivanovna", 
-"email": "qghjk@gmail.com",
-    "role": [{
-        "id": "2",
-        "name": "SALE_USER"
-    }]
-}
-    
-```
 ![run](./DirectoryREADME/Untitled1.png "RUN")
 ---
 
-## Demo POST
-
+## POST (Create some User)
 
 ![addUser](./DirectoryREADME/postmanAdd.png "addUser")
 
-## Demo GET
+## GET (Get all Users)
+![ListOfUsers1](./DirectoryREADME/get1.png "ListOfUsers1")
+![ListOfUsers1](./DirectoryREADME/get2.png "ListOfUsers1")
+![ListOfUsers1](./DirectoryREADME/get3.png "ListOfUsers1")
+![ListOfUsers1](./DirectoryREADME/get4.png "ListOfUsers1")
+rows 93-95
+![ListOfUsers1](./DirectoryREADME/get5.png "ListOfUsers1")
 
 ![ListOfUsers1](./DirectoryREADME/1.png "ListOfUsers1")
 

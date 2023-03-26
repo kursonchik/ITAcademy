@@ -17,6 +17,7 @@ import java.util.Set;
 
 @Component
 public class UserMapperImpl implements UserMapper {
+
     @Autowired
     private RoleMapper roleMapper;
 

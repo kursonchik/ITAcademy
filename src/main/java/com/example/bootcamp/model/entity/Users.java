@@ -1,6 +1,5 @@
 package com.example.bootcamp.model.entity;
 
-import com.example.bootcamp.dto.RoleDto;
 import lombok.*;
 
 import javax.persistence.*;

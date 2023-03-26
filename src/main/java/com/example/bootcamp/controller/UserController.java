@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -28,20 +29,31 @@ public class UserController implements UserAPIInterface {
 
     // get all users
     @Override
-    public String findAll(Pageable pageable) {
-        Map<String, Object> returnMap = new HashMap<>();
-        returnMap.put("List of users:", this.userService.findAll(pageable));
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    public ResponseEntity<String> findAllUsers(Pageable pageable) {
+        try {
+            Map<String, Object> returnMap = new HashMap<>();
+            returnMap.put("List of users:", this.userService.findAllUsers(pageable));
+            if (returnMap.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            return new ResponseEntity<>(gson.toJson(returnMap), HttpStatus.OK);
 
-        return gson.toJson(returnMap);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
     // create user
     @Override
-    public ResponseEntity<String> createUser(UserDtoWithFullName createUserDto) {
-        userService.save(createUserDto);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(createUserDto));
+    public ResponseEntity<String> createUser(@RequestBody UserDtoWithFullName createUserDto) {
+        try {
+            userService.saveUser(createUserDto);
+            return ResponseEntity.status(HttpStatus.CREATED).body(userService.saveUser(createUserDto));
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }
